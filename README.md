@@ -35,6 +35,14 @@ Les fiches décrivent les sources à partir des informations publiées par leurs
 - [Contribuer](CONTRIBUTING.md)
 - [Avertissement](DISCLAIMER.md)
 
+## Transparence sur l’utilisation de l’IA
+
+Ce répertoire est maintenu avec l’assistance d’outils d’intelligence artificielle. Les fiches, résumés et liens sont ajoutés progressivement à partir de sources publiques.
+
+Malgré les efforts de traçabilité, certaines informations, interprétations, dates de consultation ou URL pourraient ne pas avoir été revérifiées manuellement au moment de leur ajout. Les sources originales doivent donc toujours être consultées avant tout usage analytique, décisionnel ou citation formelle.
+
+Les contributions visant à corriger, compléter ou actualiser les références sont les bienvenues.
+
 ## Licence
 
 La structure, les descriptions originales et les métadonnées créées pour ce dépôt sont publiées sous licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Les sources externes demeurent régies par leurs propres licences et conditions d’utilisation.

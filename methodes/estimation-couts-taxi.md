@@ -47,6 +47,14 @@ Avec un pourboire facultatif de 15 % :
 C_avec_pourboire = 22,56 × 1,15 = 25,94 $
 ```
 
+## Planificateurs et prix en temps réel
+
+- [Transit — Montréal](https://transitapp.com/fr/region/montreal) : itinéraires multimodaux et estimations de taxi/VTC lorsque disponibles.
+- [Google Maps — itinéraires](https://www.google.com/maps/dir/) : saisir le départ et la destination, puis choisir l’onglet **Courses**.
+- [Estimateur Uber Taxi](https://www.uber.com/global/fr-ca/r/taxi-calculator/) : estimation selon le trajet.
+
+Ces outils sont utiles pour comparer les options; le prix final d’une course traditionnelle demeure celui indiqué par le taximètre.
+
 ## Règles de qualité
 
 - Utiliser l’itinéraire routier réel; ne pas employer la distance à vol d’oiseau.

@@ -55,6 +55,15 @@ Coût avec pourboire facultatif de 15 % : 20,70–27,60 $
 Prix à confirmer immédiatement avant la demande : la majoration dynamique peut évoluer.
 ```
 
+## Planificateurs et prix en temps réel
+
+- [Transit — Montréal](https://transitapp.com/fr/region/montreal) : comparaison d’options taxi et VTC lorsque disponibles.
+- [Google Maps — itinéraires](https://www.google.com/maps/dir/) : saisir le départ et la destination, puis choisir **Courses** pour consulter les options proposées, dont Lyft selon la disponibilité locale.
+- [Estimateur Uber](https://www.uber.com/global/en/price-estimate/) : prix et catégories proposés avant la commande.
+- [Aide Lyft — estimation](https://help.lyft.com/hc/en-ca/all/articles/115013080308-How-to-estimate-the-cost-of-a-Lyft-ride) : estimation affichée après la saisie des deux lieux dans l’application.
+
+Ces estimations sont instantanées et non garanties : la disponibilité et la tarification dynamique peuvent changer avant la réservation.
+
 ## Règles de qualité
 
 - Comparer la même catégorie de véhicule entre plateformes.

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "service": "BIXI Montréal",
+    "currency": "CAD",
+    "taxes_included": false,
+    "source_officielle": "https://bixi.com/fr/tarifs/",
+    "source_support": "https://support.bixi.com/hc/fr/categories/7586994996883-Tarifs",
+    "verified_at": "2026-08-11",
+    "scope": "Tarification publique pour l'estimation locale. Vérifier les prix et conditions dans BIXI avant réservation."
+  },
+  "taxes": {
+    "tps": 0.05,
+    "tvq": 0.09975,
+    "total": 0.14975
+  },
+  "memberships": {
+    "monthly": {
+      "price": 24,
+      "billing_period_days": 30
+    },
+    "seasonal": {
+      "price": 115,
+      "billing_period": "season"
+    }
+  },
+  "member_trip_pricing": {
+    "regular_bike": {
+      "included_minutes_per_segment": 45,
+      "overage_rate_per_minute": 0.19
+    },
+    "electric_bike": {
+      "included_minutes_per_segment": 0,
+      "rate_per_minute": 0.19
+    }
+  },
+  "one_way_trip_pricing": {
+    "unlock_fee": 1.6,
+    "regular_bike_rate_per_minute": 0.21,
+    "electric_bike_rate_per_minute": 0.36
+  },
+  "trailer_pricing": {
+    "member": {
+      "included_minutes": 240,
+      "price": 5,
+      "overage_rate_per_minute": 0.21
+    },
+    "one_way": {
+      "trailer_only_price": 9,
+      "bike_and_trailer_price": 10.6
+    }
+  },
+  "calculation_rules": {
+    "segment_reset": "For a member, the regular-bike included period resets after the bike is properly returned and locked at a station.",
+    "marginal_trip_cost": "Exclude membership fees already paid when estimating a single trip, unless the user asks for total ownership cost.",
+    "availability": "Pricing data does not confirm a bike or dock is available; use GBFS only after explicit user approval.",
+    "unknown_rate": "Do not infer a missing or changed tariff; verify the official BIXI source."
+  }
+}

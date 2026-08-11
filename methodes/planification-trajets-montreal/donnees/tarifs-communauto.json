@@ -3,15 +3,23 @@
     "service": "Communauto Montréal",
     "currency": "CAD",
     "taxes_included": false,
-    "source_type": "user_provided_screenshot",
+    "source_type": "user_provided_screenshots",
     "source_officielle": "https://montreal.communauto.com/tarifs/",
     "observed_at": "2026-08-10",
-    "scope": "Tarifs en station affichés dans la grille fournie. Les tarifs FLEX et les laissez-passer non affichés sont volontairement nuls."
+    "scope": "Grille des tarifs en station, tarifs FLEX, règles de comparaison et avantages par forfait affichés dans les captures fournies."
   },
   "taxes": {
     "tps": 0.05,
     "tvq": 0.09975,
     "total": 0.14975
+  },
+  "flex_base": {
+    "minute_rate": 0.43,
+    "hourly_cap": 14.25,
+    "daily_cap": 50,
+    "included_distance_km": 75,
+    "distance_rate_after_included_km": 0.31,
+    "weekend_surcharge": 0
   },
   "plans": {
     "liberte": {
@@ -22,15 +30,26 @@
         "refundable_membership_deposit": 0
       },
       "station": {
+        "minimum_reservation_minutes": 30,
+        "minimum_billable_hours": 0,
         "hourly_rate": 14.25,
         "first_day_cap": 55,
         "additional_day_rate": 50,
         "included_distance_km": 75,
         "distance_rate": 0,
         "distance_rate_after_km": 75,
-        "distance_rate_after_threshold": 0.31
+        "distance_rate_after_threshold": 0.31,
+        "weekend_hourly_surcharge": 0.35,
+        "weekend_daily_surcharge": 3.5
       },
-      "flex": null
+      "flex": {
+        "eligible_for_station_rate_if_lower": false,
+        "long_distance_eligible": false,
+        "quick_round_trip_preferred_rate": false,
+        "discounted_flex_pass": false,
+        "free_time_between_1h_and_6h_when_station_rate_applies": false,
+        "work_rate_eligible": false
+      }
     },
     "liberte_plus": {
       "label": "Liberté Plus",
@@ -40,6 +59,8 @@
         "refundable_membership_deposit": 0
       },
       "station": {
+        "minimum_reservation_minutes": 30,
+        "minimum_billable_hours": 0,
         "hourly_rate": 7.05,
         "first_day_cap": 50,
         "additional_day_rate": 35.5,
@@ -48,7 +69,14 @@
         "distance_rate_after_km": 50,
         "distance_rate_after_threshold": 0.26
       },
-      "flex": null
+      "flex": {
+        "eligible_for_station_rate_if_lower": true,
+        "long_distance_eligible": false,
+        "quick_round_trip_preferred_rate": false,
+        "discounted_flex_pass": false,
+        "free_time_between_1h_and_6h_when_station_rate_applies": false,
+        "work_rate_eligible": false
+      }
     },
     "economique": {
       "label": "Économique",
@@ -59,6 +87,8 @@
         "family_refundable_membership_deposit": 750
       },
       "station": {
+        "minimum_reservation_minutes": 30,
+        "minimum_billable_hours": 0,
         "hourly_rate": 3.8,
         "first_day_cap": 31.5,
         "additional_day_rate": null,
@@ -67,7 +97,14 @@
         "distance_rate_after_km": 50,
         "distance_rate_after_threshold": 0.36
       },
-      "flex": null
+      "flex": {
+        "eligible_for_station_rate_if_lower": true,
+        "long_distance_eligible": true,
+        "quick_round_trip_preferred_rate": true,
+        "discounted_flex_pass": true,
+        "free_time_between_1h_and_6h_when_station_rate_applies": false,
+        "work_rate_eligible": false
+      }
     },
     "economique_plus": {
       "label": "Économique Plus",
@@ -78,6 +115,8 @@
         "family_refundable_membership_deposit": 750
       },
       "station": {
+        "minimum_reservation_minutes": 30,
+        "minimum_billable_hours": 0,
         "hourly_rate": 3.3,
         "first_day_cap": 26.5,
         "additional_day_rate": null,
@@ -86,7 +125,14 @@
         "distance_rate_after_km": 50,
         "distance_rate_after_threshold": 0.33
       },
-      "flex": null
+      "flex": {
+        "eligible_for_station_rate_if_lower": true,
+        "long_distance_eligible": true,
+        "quick_round_trip_preferred_rate": true,
+        "discounted_flex_pass": true,
+        "free_time_between_1h_and_6h_when_station_rate_applies": true,
+        "work_rate_eligible": false
+      }
     },
     "economique_extra": {
       "label": "Économique Extra",
@@ -97,6 +143,8 @@
         "family_refundable_membership_deposit": 750
       },
       "station": {
+        "minimum_reservation_minutes": 30,
+        "minimum_billable_hours": 0,
         "hourly_rate": 3,
         "first_day_cap": 23,
         "additional_day_rate": null,
@@ -105,12 +153,20 @@
         "distance_rate_after_km": null,
         "distance_rate_after_threshold": null
       },
-      "flex": null
+      "flex": {
+        "eligible_for_station_rate_if_lower": true,
+        "long_distance_eligible": true,
+        "quick_round_trip_preferred_rate": true,
+        "discounted_flex_pass": true,
+        "free_time_between_1h_and_6h_when_station_rate_applies": true,
+        "work_rate_eligible": true
+      }
     }
   },
   "calculation_rules": {
     "unknown_plan": "Ask the user which plan is active before returning a firm price.",
-    "unknown_rate": "Do not infer null values; request or retrieve an official source.",
-    "station_estimate": "Use station rates only for a reserved station vehicle. FLEX requires populated flex rates."
+    "station_estimate": "A station vehicle has a 30-minute minimum reservation but no minimum billable duration.",
+    "flex_best_rate": "For eligible plans, charge the lower of the FLEX rate and the station calculation. When the station calculation is selected for a FLEX trip, a minimum of four billable hours applies to that comparison.",
+    "unknown_rate": "Do not infer values that are null; request or retrieve an official source."
   }
 }

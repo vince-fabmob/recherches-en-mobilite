@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "service": "Communauto Montréal",
+    "currency": "CAD",
+    "taxes_included": false,
+    "source_officielle": "https://montreal.communauto.com/tarifs/",
+    "source_type": "user_provided_screenshots",
+    "observed_at": "2026-08-11"
+  },
+  "long_distance": {
+    "eligible_plans": ["economique", "economique_plus", "economique_extra"],
+    "auto_apply_if_cheaper": true,
+    "fuel_included": true,
+    "excess_hour_rate": 15,
+    "excess_hour_rule": "Apply each excess hour up to the applicable daily price.",
+    "seasons": {
+      "low": {
+        "start": "10-16",
+        "end": "06-14",
+        "first_day_rate": 45,
+        "additional_day_rate": 35,
+        "weekly_rate": 210,
+        "distance_rate_until_km": 300,
+        "distance_rate": 0.28,
+        "distance_rate_after_km": 300,
+        "distance_rate_after_threshold": 0.19
+      },
+      "high": {
+        "start": "06-15",
+        "end": "10-15",
+        "first_day_rate": 55,
+        "additional_day_rate": 45,
+        "weekly_rate": 270,
+        "distance_rate_until_km": 300,
+        "distance_rate": 0.28,
+        "distance_rate_after_km": 300,
+        "distance_rate_after_threshold": 0.19
+      }
+    }
+  }
+}

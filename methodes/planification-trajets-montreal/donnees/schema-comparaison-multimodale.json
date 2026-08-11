@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "name": "Schéma de comparaison multimodale — Montréal",
+    "version": "0.1.0",
+    "purpose": "Pré-sélection locale des modes, suivie d'une vérification dynamique seulement avec l'accord de l'utilisateur."
+  },
+  "request": {
+    "origin": "adresse ou coordonnées",
+    "destination": "adresse ou coordonnées",
+    "departure_or_arrival_time": "ISO 8601 facultatif",
+    "travellers": 1,
+    "constraints": {
+      "priority": "balanced",
+      "luggage": false,
+      "accessibility_required": false,
+      "accepts_bike": true,
+      "max_walking_minutes": 15
+    },
+    "subscriptions": {
+      "communauto_plan": "economique_extra",
+      "bixi_member": false
+    }
+  },
+  "selection_policy": {
+    "default_verification_level": "estimate",
+    "do_not_query_external_services_by_default": true,
+    "verify_only_after_user_confirmation": true,
+    "default_max_modes_to_verify": 2,
+    "allowed_verification_levels": ["estimate", "verification_required", "real_time"],
+    "allowed_modes": ["walk", "bike", "bixi", "transit", "communauto_station", "communauto_flex", "taxi", "ride_hail"]
+  },
+  "mode_result": {
+    "mode": "allowed_modes value",
+    "eligible": true,
+    "door_to_door_minutes": null,
+    "cost_before_taxes": null,
+    "cost_after_taxes": null,
+    "confidence": "estimate | confirmed | confirm_in_app",
+    "assumptions": [],
+    "verification_level": "estimate",
+    "verification_needed": [],
+    "action_url": null
+  },
+  "response_policy": {
+    "first_response": "Show only plausible modes and their estimates; ask which modes the user wants verified.",
+    "after_confirmation": "Query only user-selected modes or, if requested, the top two ranked modes.",
+    "always_disclose": ["assumptions", "confidence", "dynamic prices or availability requiring confirmation"]
+  }
+}

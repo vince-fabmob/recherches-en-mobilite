@@ -2,58 +2,115 @@
   "metadata": {
     "service": "Communauto Montréal",
     "currency": "CAD",
+    "taxes_included": false,
+    "source_type": "user_provided_screenshot",
     "source_officielle": "https://montreal.communauto.com/tarifs/",
-    "tarifs_version": null,
-    "derniere_verification": null,
-    "note": "Renseigner et vérifier toutes les valeurs avant de les utiliser dans une estimation."
+    "observed_at": "2026-08-10",
+    "scope": "Tarifs en station affichés dans la grille fournie. Les tarifs FLEX et les laissez-passer non affichés sont volontairement nuls."
   },
   "taxes": {
     "tps": 0.05,
     "tvq": 0.09975,
     "total": 0.14975
   },
-  "forfaits": {
-    "flex_sans_forfait": {
-      "libelle": "FLEX sans forfait",
-      "flex": {
-        "tarif_minute": null,
-        "tarif_heure": null,
-        "tarif_jour": null,
-        "kilometres_inclus": null,
-        "tarif_km_supplementaire": null
-      }
+  "plans": {
+    "liberte": {
+      "label": "Liberté",
+      "membership": {
+        "price": 0,
+        "billing_period": "none",
+        "refundable_membership_deposit": 0
+      },
+      "station": {
+        "hourly_rate": 14.25,
+        "first_day_cap": 55,
+        "additional_day_rate": 50,
+        "included_distance_km": 75,
+        "distance_rate": 0,
+        "distance_rate_after_km": 75,
+        "distance_rate_after_threshold": 0.31
+      },
+      "flex": null
+    },
+    "liberte_plus": {
+      "label": "Liberté Plus",
+      "membership": {
+        "price": 45,
+        "billing_period": "year",
+        "refundable_membership_deposit": 0
+      },
+      "station": {
+        "hourly_rate": 7.05,
+        "first_day_cap": 50,
+        "additional_day_rate": 35.5,
+        "included_distance_km": 0,
+        "distance_rate": 0.29,
+        "distance_rate_after_km": 50,
+        "distance_rate_after_threshold": 0.26
+      },
+      "flex": null
     },
     "economique": {
-      "libelle": "Économique",
-      "flex": {
-        "tarif_minute": null,
-        "tarif_heure": null,
-        "tarif_jour": null,
-        "kilometres_inclus": null,
-        "tarif_km_supplementaire": null
-      }
+      "label": "Économique",
+      "membership": {
+        "price": 45,
+        "billing_period": "year",
+        "refundable_membership_deposit": 500,
+        "family_refundable_membership_deposit": 750
+      },
+      "station": {
+        "hourly_rate": 3.8,
+        "first_day_cap": 31.5,
+        "additional_day_rate": null,
+        "included_distance_km": 0,
+        "distance_rate": 0.49,
+        "distance_rate_after_km": 50,
+        "distance_rate_after_threshold": 0.36
+      },
+      "flex": null
+    },
+    "economique_plus": {
+      "label": "Économique Plus",
+      "membership": {
+        "price": 12.5,
+        "billing_period": "month",
+        "refundable_membership_deposit": 500,
+        "family_refundable_membership_deposit": 750
+      },
+      "station": {
+        "hourly_rate": 3.3,
+        "first_day_cap": 26.5,
+        "additional_day_rate": null,
+        "included_distance_km": 0,
+        "distance_rate": 0.41,
+        "distance_rate_after_km": 50,
+        "distance_rate_after_threshold": 0.33
+      },
+      "flex": null
     },
     "economique_extra": {
-      "libelle": "Économique Extra",
-      "flex": {
-        "tarif_minute": null,
-        "tarif_heure": null,
-        "tarif_jour": null,
-        "kilometres_inclus": null,
-        "tarif_km_supplementaire": null
+      "label": "Économique Extra",
+      "membership": {
+        "price": 30,
+        "billing_period": "month",
+        "refundable_membership_deposit": 500,
+        "family_refundable_membership_deposit": 750
       },
-      "laissez_passer_flex": {
-        "actif": null,
-        "prix_avant_taxes": null,
-        "duree_max_minutes": null,
-        "kilometres_inclus": null,
-        "conditions": []
-      }
+      "station": {
+        "hourly_rate": 3,
+        "first_day_cap": 23,
+        "additional_day_rate": null,
+        "included_distance_km": 0,
+        "distance_rate": 0.33,
+        "distance_rate_after_km": null,
+        "distance_rate_after_threshold": null
+      },
+      "flex": null
     }
   },
-  "regle_calcul": {
-    "forfait_inconnu": "Demander le forfait avant de produire un prix ferme.",
-    "meilleur_tarif": "Appliquer uniquement les comparaisons de tarifs explicitement prévues par la grille officielle du forfait actif.",
-    "tarif_non_verifie": "Ne pas calculer un montant précis à partir de valeurs nulles ou périmées."
+  "calculation_rules": {
+    "unknown_plan": "Ask the user which plan is active before returning a firm price.",
+    "unknown_rate": "Do not infer null values; request or retrieve an official source.",
+    "station_estimate": "Use station rates only for a reserved station vehicle. FLEX requires populated flex rates."
   }
 }

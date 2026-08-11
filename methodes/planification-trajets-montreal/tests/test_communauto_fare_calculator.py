@@ -49,6 +49,17 @@ class CommunautoFareCalculatorTests(unittest.TestCase):
         self.assertEqual(result["alternatives"]["long_distance"], 101.00)
         self.assertEqual(result["before_taxes"], min(result["alternatives"].values()))
 
+    def test_long_distance_is_compared_when_multi_day_station_rate_is_unavailable(self):
+        result = calculate_best_eligible_rate(
+            self.rates,
+            "economique_extra",
+            1500,
+            200,
+            start="2026-02-01T09:00",
+        )
+        self.assertEqual(result["mode"], "long_distance")
+        self.assertEqual(result["alternatives"], {"flex": 138.75, "long_distance": 116.00})
+
     def test_long_distance_requires_start_for_24_hour_trip(self):
         with self.assertRaises(ValueError):
             calculate_best_eligible_rate(self.rates, "economique_extra", 1440, 200)

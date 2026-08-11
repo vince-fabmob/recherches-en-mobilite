@@ -99,9 +99,16 @@ def calculate_best_eligible_rate(rates, plan_id, duration_minutes, distance_km, 
     if not plan["flex"]["eligible_for_station_rate_if_lower"]:
         flex["selected_by"] = "flex_only"
         return flex
-    station = calculate_station(rates, plan_id, max(duration_minutes, 240), distance_km, weekend)
-    candidates = [flex, station]
-    alternatives = {"flex": flex["before_taxes"], "station_comparison": station["before_taxes"]}
+    candidates = [flex]
+    alternatives = {"flex": flex["before_taxes"]}
+    try:
+        station = calculate_station(rates, plan_id, max(duration_minutes, 240), distance_km, weekend)
+    except ValueError as error:
+        if str(error) != "additional-day station rate is unavailable for this plan":
+            raise
+    else:
+        candidates.append(station)
+        alternatives["station_comparison"] = station["before_taxes"]
     if duration_minutes >= 1440:
         trip_start = _parse_start(start)
         long_distance = calculate_long_distance(

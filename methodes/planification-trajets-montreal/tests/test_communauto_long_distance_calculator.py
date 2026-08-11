@@ -19,9 +19,9 @@ class LongDistanceCalculatorTests(unittest.TestCase):
         result = calculate_long_distance(self.rates, "economique_extra", "2026-07-01T09:00", "2026-07-02T09:00", 100)
         self.assertEqual(result["before_taxes"], 83.00)
 
-    def test_additional_hours_are_capped_at_day_rate(self):
-        result = calculate_long_distance(self.rates, "economique", "2026-02-01T09:00", "2026-02-02T12:00", 0)
-        self.assertEqual(result["time_cost"], 80.00)
+    def test_additional_hour_uses_excess_hour_rate_before_daily_cap(self):
+        result = calculate_long_distance(self.rates, "economique", "2026-02-01T09:00", "2026-02-02T10:00", 0)
+        self.assertEqual(result["time_cost"], 60.00)
 
     def test_weekly_cap(self):
         result = calculate_long_distance(self.rates, "economique", "2026-02-01T09:00", "2026-02-08T09:00", 0)

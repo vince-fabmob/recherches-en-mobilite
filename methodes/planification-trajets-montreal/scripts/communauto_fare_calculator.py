@@ -1,6 +1,9 @@
 import json
 import math
+from datetime import datetime, timedelta
 from pathlib import Path
+
+from communauto_long_distance_calculator import calculate_long_distance, load_long_distance_rates
 
 
 def load_rates(path=None):
@@ -62,11 +65,14 @@ def calculate_station(rates, plan_id, duration_minutes, distance_km, weekend=Fal
         station = rates["plans"][plan_id]["station"]
     except KeyError as error:
         raise ValueError(f"unknown plan: {plan_id}") from error
-    if duration_minutes > 1440 and station["additional_day_rate"] is None:
+    days = max(1, math.ceil(duration_minutes / 1440))
+    if days > 1 and station["additional_day_rate"] is None:
         raise ValueError("additional-day station rate is unavailable for this plan")
     hourly_rate = station["hourly_rate"] + (station.get("weekend_hourly_surcharge", 0) if weekend else 0)
-    daily_cap = station["first_day_cap"] + (station.get("weekend_daily_surcharge", 0) if weekend else 0)
-    time_cost = min(duration_minutes / 60 * hourly_rate, daily_cap)
+    first_day_cap = station["first_day_cap"] + (station.get("weekend_daily_surcharge", 0) if weekend else 0)
+    additional_day_rate = station.get("additional_day_rate") or 0
+    time_cap = first_day_cap + (days - 1) * additional_day_rate
+    time_cost = min(duration_minutes / 60 * hourly_rate, time_cap)
     distance_cost = _distance_cost(
         distance_km,
         station["included_distance_km"],
@@ -79,7 +85,13 @@ def calculate_station(rates, plan_id, duration_minutes, distance_km, weekend=Fal
     return result
 
 
-def calculate_best_eligible_rate(rates, plan_id, duration_minutes, distance_km, weekend=False):
+def _parse_start(start):
+    if start is None:
+        raise ValueError("start is required to compare Longue distance seasonally for trips of 24 hours or more")
+    return datetime.fromisoformat(start) if isinstance(start, str) else start
+
+
+def calculate_best_eligible_rate(rates, plan_id, duration_minutes, distance_km, weekend=False, start=None):
     flex = calculate_flex(rates, duration_minutes, distance_km)
     plan = rates["plans"].get(plan_id)
     if plan is None:
@@ -87,9 +99,28 @@ def calculate_best_eligible_rate(rates, plan_id, duration_minutes, distance_km, 
     if not plan["flex"]["eligible_for_station_rate_if_lower"]:
         flex["selected_by"] = "flex_only"
         return flex
-    station = calculate_station(rates, plan_id, max(duration_minutes, 240), distance_km, weekend)
-    selected = min((flex, station), key=lambda item: item["before_taxes"])
-    selected = dict(selected)
+    candidates = [flex]
+    alternatives = {"flex": flex["before_taxes"]}
+    try:
+        station = calculate_station(rates, plan_id, max(duration_minutes, 240), distance_km, weekend)
+    except ValueError as error:
+        if str(error) != "additional-day station rate is unavailable for this plan":
+            raise
+    else:
+        candidates.append(station)
+        alternatives["station_comparison"] = station["before_taxes"]
+    if duration_minutes >= 1440:
+        trip_start = _parse_start(start)
+        long_distance = calculate_long_distance(
+            load_long_distance_rates(),
+            plan_id,
+            trip_start,
+            trip_start + timedelta(minutes=duration_minutes),
+            distance_km,
+        )
+        candidates.append(long_distance)
+        alternatives["long_distance"] = long_distance["before_taxes"]
+    selected = dict(min(candidates, key=lambda item: item["before_taxes"]))
     selected["selected_by"] = "lowest_eligible_rate"
-    selected["alternatives"] = {"flex": flex["before_taxes"], "station_comparison": station["before_taxes"]}
+    selected["alternatives"] = alternatives
     return selected

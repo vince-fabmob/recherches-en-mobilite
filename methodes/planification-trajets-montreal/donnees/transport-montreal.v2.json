@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "schema_version": "2.0.0-draft.1",
+    "status": "draft",
+    "territory": "Montréal, Québec, Canada",
+    "currency": "CAD",
+    "taxes_included": false,
+    "last_verified": "2026-08-10",
+    "maintenance_policy": "Les tarifs doivent être validés mensuellement auprès des sources officielles avant une mise en production."
+  },
+  "sources": {
+    "communauto": {"url": "https://montreal.communauto.com/tarifs/", "last_verified": "2026-08-10"},
+    "bixi": {"url": "https://bixi.com/fr/tarifs/", "last_verified": "2026-08-10"},
+    "stm": {"url": "https://www.stm.info/", "last_verified": null},
+    "leo_autopartage": {"url": "https://leoautopartage.com/tarifs/", "last_verified": null}
+  },
+  "bixi": {
+    "membership": {"type": "seasonal", "price": 115.0, "regular_bike_free_minutes": 45, "regular_bike_after_free_minutes_per_minute": 0.19, "electric_bike_per_minute": 0.19},
+    "real_time": {"gbfs_discovery_url": "https://gbfs.velobixi.com/gbfs/gbfs.json"}
+  },
+  "communauto": {
+    "default_plan": "economique_extra",
+    "flex": {"minute_rate": 0.43, "hourly_cap": 14.25, "tariff_status": "verified_page_summary", "requires_app_validation": true},
+    "station_based": {"plan": "economique_extra", "rate_table": null, "rate_table_status": "manual_verification_required"},
+    "calculation_policy": {
+      "strategy": "minimum_eligible_price",
+      "formula": "min(flex_cost, station_based_cost)",
+      "eligibility": ["Le trajet et la fin de trajet FLEX doivent être permis par Communauto.", "La destination doit être validée dans l'application Communauto.", "Le calcul stationnaire doit utiliser la table Économique Extra en vigueur."],
+      "rounding": "Arrondir seulement le résultat final à deux décimales."
+    },
+    "zones_file": "communauto_flex_zones.geojson"
+  },
+  "stm": {"fare_data_status": "manual_verification_required"},
+  "leo_autopartage": {"fare_data_status": "manual_verification_required"}
+}

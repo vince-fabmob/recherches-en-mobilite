@@ -38,6 +38,20 @@ def station_lookup(stations: dict, network: str) -> dict:
     return lookup
 
 
+def municipality_lookup(zones: dict) -> dict:
+    lookup = {}
+    for zone, municipalities in zones["municipalities"].items():
+        for municipality in municipalities:
+            lookup[normalize_place(municipality)] = zone
+    for name, metadata in zones.get("place_overrides", {}).items():
+        lookup[normalize_place(name)] = metadata["zone"]
+    for alias, canonical in zones.get("normalization", {}).get("aliases", {}).items():
+        canonical_key = normalize_place(canonical)
+        if canonical_key in lookup:
+            lookup[normalize_place(alias)] = lookup[canonical_key]
+    return lookup
+
+
 def lookup_zone(place: str, reseau: str | None = None, zones: dict | None = None, stations: dict | None = None) -> str:
     """Résout une municipalité ou une station vers sa zone ARTM."""
     if not place or not place.strip():
@@ -51,20 +65,13 @@ def lookup_zone(place: str, reseau: str | None = None, zones: dict | None = None
         lookup = station_lookup(stations, network)
         if key in lookup:
             return lookup[key]
+        municipality_zones = municipality_lookup(zones or load_json(ZONES_PATH))
+        if key in municipality_zones:
+            return municipality_zones[key]
         if network == "metro":
             return stations["networks"]["metro"]["default_zone"]
         raise ValueError(f"Station inconnue sur le réseau {reseau}: {place}")
-    zones = zones or load_json(ZONES_PATH)
-    lookup = {}
-    for zone, municipalities in zones["municipalities"].items():
-        for municipality in municipalities:
-            lookup[normalize_place(municipality)] = zone
-    for name, metadata in zones.get("place_overrides", {}).items():
-        lookup[normalize_place(name)] = metadata["zone"]
-    for alias, canonical in zones.get("normalization", {}).get("aliases", {}).items():
-        canonical_key = normalize_place(canonical)
-        if canonical_key in lookup:
-            lookup[normalize_place(alias)] = lookup[canonical_key]
+    lookup = municipality_lookup(zones or load_json(ZONES_PATH))
     if key not in lookup:
         raise ValueError(f"Unknown ARTM place: {place}")
     return lookup[key]

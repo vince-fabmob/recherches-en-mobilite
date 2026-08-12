@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "authority": "ARTM",
+    "document": "Grille tarifaire 2026",
+    "effective_date": "2026-07-01",
+    "currency": "CAD",
+    "price_unit": "cents"
+  },
+  "scope": {
+    "modes": ["bus", "metro", "rem", "train"],
+    "product_family": "tous_modes",
+    "rule": "Le titre doit couvrir la zone de départ, les zones traversées et la zone d'arrivée."
+  },
+  "zones": {
+    "A": "Agglomération de Montréal",
+    "B": "Agglomérations de Longueuil et de Laval",
+    "C": "Couronnes nord et sud",
+    "D": "Hors territoire de l'ARTM"
+  },
+  "fare_profiles": {
+    "regular": "Ordinaire",
+    "reduced_6_17": "Réduit, 6 à 17 ans",
+    "student_18_plus": "Réduit, étudiant de 18 ans et plus",
+    "senior_65_plus": "Réduit, 65 ans et plus"
+  },
+  "all_modes": {
+    "A": {
+      "one_trip": {"regular": 375, "reduced_6_17": 275, "senior_65_plus": 275},
+      "two_trips": {"regular": 700, "reduced_6_17": 500, "senior_65_plus": 500},
+      "ten_trips": {"regular": 3500, "reduced_6_17": 2350, "senior_65_plus": 2350},
+      "24_hours": {"regular": 1125},
+      "three_days": {"regular": 2175},
+      "weekly": {"regular": 3325, "reduced_6_17": 2000, "senior_65_plus": 2000},
+      "monthly": {"regular": 11000, "reduced_6_17": 6600, "student_18_plus": 6600, "senior_65_plus": 6600},
+      "four_months": {"reduced_6_17": 25100, "student_18_plus": 25100, "senior_65_plus": 25100}
+    },
+    "AB": {
+      "one_trip": {"regular": 500, "reduced_6_17": 350, "senior_65_plus": 350},
+      "two_trips": {"regular": 975, "reduced_6_17": 650, "senior_65_plus": 650},
+      "ten_trips": {"regular": 4750, "reduced_6_17": 3225, "senior_65_plus": 3225},
+      "24_hours": {"regular": 1375},
+      "three_days": {"regular": 2925},
+      "monthly": {"regular": 17000, "reduced_6_17": 10200, "student_18_plus": 10200, "senior_65_plus": 10200}
+    },
+    "ABC": {
+      "one_trip": {"regular": 700, "reduced_6_17": 475, "senior_65_plus": 475},
+      "two_trips": {"regular": 1350, "reduced_6_17": 900, "senior_65_plus": 900},
+      "ten_trips": {"regular": 6175, "reduced_6_17": 4125, "senior_65_plus": 4125},
+      "24_hours": {"regular": 1775},
+      "three_days": {"regular": 4125},
+      "monthly": {"regular": 20600, "reduced_6_17": 12350, "student_18_plus": 12350, "senior_65_plus": 12350}
+    },
+    "ABCD": {
+      "one_trip": {"regular": 950, "reduced_6_17": 675, "senior_65_plus": 675},
+      "two_trips": {"regular": 1850, "reduced_6_17": 1300, "senior_65_plus": 1300},
+      "ten_trips": {"regular": 8425, "reduced_6_17": 5650, "senior_65_plus": 5650},
+      "24_hours": {"regular": 2275},
+      "three_days": {"regular": 5625},
+      "monthly": {"regular": 28100, "reduced_6_17": 16850, "student_18_plus": 16850, "senior_65_plus": 16850}
+    }
+  },
+  "unlimited_network_wide": {
+    "evening": {"regular": 675, "valid_from": "18:00", "valid_until": "05:00", "first_use_before": "00:00"},
+    "weekend": {"regular": 1700, "valid_from": "Friday 16:00", "valid_until": "Monday 05:00"}
+  },
+  "eligibility_notes": [
+    "Les tarifs réduits exigent une carte OPUS avec photo, selon le profil admissible.",
+    "Les enfants de 11 ans et moins voyagent gratuitement s'ils sont accompagnés d'une personne de 14 ans ou plus ayant un titre valide; maximum de cinq enfants de 6 à 11 ans.",
+    "Les résidents de l'agglomération de Montréal âgés de 65 ans et plus peuvent voyager gratuitement en zone A avec le titre Gratuité 65+, Tous modes A."
+  ]
+}

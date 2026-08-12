@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "authority": "ARTM",
+    "document": "Grille tarifaire du transport collectif 2026",
+    "source_url": "https://www.artm.quebec/wp-content/uploads/2026/06/22189-ARTM_Grille_tarifaire_TC_FR_VF.pdf",
+    "effective_date": "2026-07-01",
+    "retrieved_date": "2026-08-11"
+  },
+  "zone_definitions": {
+    "A": "Agglomération de Montréal",
+    "B": "Agglomération de Longueuil et Laval",
+    "C": "Couronnes nord et sud",
+    "D": "Hors territoire de l'ARTM"
+  },
+  "municipalities": {
+    "A": ["Baie-D'Urfé", "Beaconsfield", "Côte-Saint-Luc", "Dollard-des-Ormeaux", "Dorval", "Hampstead", "Kirkland", "L'Île-Dorval", "Montréal", "Montréal-Est", "Montréal-Ouest", "Mont-Royal", "Pointe-Claire", "Sainte-Anne-de-Bellevue", "Senneville", "Westmount"],
+    "B": ["Boucherville", "Brossard", "Laval", "Longueuil", "Saint-Bruno-de-Montarville", "Saint-Lambert"],
+    "C": ["Beauharnois", "Beloeil", "Blainville", "Bois-des-Filion", "Boisbriand", "Candiac", "Carignan", "Charlemagne", "Chambly", "Châteauguay", "Contrecoeur", "Delson", "Deux-Montagnes", "Hudson", "Kahnawake", "L'Assomption", "Léry", "L'Île-Perrot", "La Prairie", "Lorraine", "Mascouche", "McMasterville", "Mercier", "Mirabel", "Mont-Saint-Hilaire", "Notre-Dame-de-l'Île-Perrot", "Oka", "Otterburn Park", "Pincourt", "Pointe-Calumet", "Repentigny", "Richelieu", "Rosemère", "Saint-Amable", "Saint-Basile-le-Grand", "Saint-Constant", "Saint-Eustache", "Saint-Jérôme", "Saint-Joseph-du-Lac", "Saint-Lazare", "Saint-Mathias-sur-Richelieu", "Saint-Mathieu-de-Beloeil", "Saint-Philippe", "Saint-Sulpice", "Sainte-Anne-des-Plaines", "Sainte-Catherine", "Sainte-Julie", "Sainte-Marthe-sur-le-Lac", "Sainte-Thérèse", "Terrasse-Vaudreuil", "Terrebonne", "Vaudreuil-Dorion", "Varennes", "Verchères"],
+    "D": ["Lavaltrie", "L'Épiphanie", "Marieville", "Rigaud", "Saint-Hyacinthe", "Saint-Placide", "Sainte-Madeleine", "Sainte-Marie-Madeleine", "Sainte-Martine"]
+  },
+  "place_overrides": {
+    "Station Brossard": {"zone": "B", "type": "rem_station"},
+    "Gare Deux-Montagnes": {"zone": "C", "type": "exo_station"}
+  },
+  "calculation_rule": "La zone de départ et la zone d'arrivée sont obtenues avec ce référentiel. Les zones traversées doivent provenir de l'itinéraire réellement choisi; elles ne doivent pas être inférées de la seule paire origine-destination.",
+  "normalization": {
+    "case_sensitive": false,
+    "diacritics_sensitive": false,
+    "aliases": {
+      "Montreal": "Montréal",
+      "Ile Perrot": "L'Île-Perrot",
+      "L Assomption": "L'Assomption",
+      "Deux Montagnes": "Deux-Montagnes",
+      "St Jerome": "Saint-Jérôme",
+      "Ste Julie": "Sainte-Julie"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "service": "Leo AutoPartage Montréal",
+    "currency": "CAD",
+    "taxes_included": false,
+    "source_officielle": "https://leoautopartage.com/tarifs/",
+    "observed_at": "2026-08-12"
+  },
+  "per_trip_fees": {
+    "access_cents": 149,
+    "insurance_cents": 199
+  },
+  "time_packages": {
+    "minute_rate_cents": 43,
+    "thirty_minutes_cents": 950,
+    "hours": {
+      "1": 1450,
+      "2": 2600,
+      "3": 3600,
+      "6": 5000
+    },
+    "days": {
+      "1": 5900,
+      "2": 11800,
+      "3": 17700,
+      "7": 41300
+    }
+  },
+  "distance": {
+    "included_km_per_day": 75,
+    "excess_rate_cents_per_km": null,
+    "excess_rate_status": "to_confirm_in_leo_app"
+  },
+  "parking": {
+    "leo_zone_cents": 0,
+    "downtown_cents": 590
+  },
+  "fuel": {
+    "included": true,
+    "reimbursement_with_receipt": true,
+    "credit_for_short_trip_cents": 500,
+    "credit_condition": "90 minutes or less and fuel purchase of at least 30 CAD"
+  },
+  "subscription": {
+    "leo_quotidien_monthly_cents": null,
+    "included_minutes_per_day": 30,
+    "status": "price_not_published"
+  }
+}

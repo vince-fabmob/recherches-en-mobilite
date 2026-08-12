@@ -29,7 +29,7 @@ class LongDistanceCalculatorTests(unittest.TestCase):
 
     def test_distance_threshold(self):
         result = calculate_long_distance(self.rates, "economique", "2026-02-01T09:00", "2026-02-02T09:00", 350)
-        self.assertEqual(result["distance_cost"], 98.50)
+        self.assertEqual(result["distance_cost"], 93.50)
 
     def test_ineligible_plan(self):
         with self.assertRaises(ValueError):

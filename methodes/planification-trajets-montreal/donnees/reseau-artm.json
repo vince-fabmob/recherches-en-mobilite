@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "title": "Réseau ARTM : stations, zones et correspondances",
+    "effective_date": "2026-07-01",
+    "retrieved_date": "2026-08-12",
+    "sources": ["https://www.artm.quebec/en/fare-zones/", "https://rem.info/fr/se-deplacer/stations-du-reseau", "https://www.donneesquebec.ca/recherche/dataset/exo-trains-gtfs", "https://rem.info/fr/actualites/ouverture-de-lacces-rapide-entre-les-stations-bonaventure-stm-et-gare-centrale-rem"]
+  },
+  "zones": {"A": "Agglomération de Montréal", "B": "Agglomération de Longueuil et Laval", "C": "Couronnes nord et sud", "D": "Hors territoire de l'ARTM"},
+  "networks": {
+    "metro": {"default_zone": "A", "zone_b_stations": ["Longueuil–Université-de-Sherbrooke", "Cartier", "De la Concorde", "Montmorency"]},
+    "rem": {
+      "A": ["Île-des-Sœurs", "Griffintown–Bernard-Landry", "Gare Centrale", "McGill", "Édouard-Montpetit", "Canora", "Ville-de-Mont-Royal", "Côte-de-Liesse", "Montpellier", "Du Ruisseau", "Bois-Franc", "Sunnybrooke", "Pierrefonds-Roxboro", "Des Sources", "Fairview–Pointe-Claire", "Kirkland", "Anse-à-l'Orme", "Marie-Curie", "YUL-Aéroport-Montréal-Trudeau"],
+      "B": ["Brossard", "Du Quartier", "Panama", "Île-Bigras", "Sainte-Dorothée"],
+      "C": ["Grand-Moulin", "Deux-Montagnes"]
+    },
+    "exo_train": {
+      "A": ["Ahuntsic", "Anjou", "Baie-D’Urfé", "Beaconsfield", "Beaurepaire", "Bois-de-Boulogne", "Cedar Park", "Chabanel", "Dorval", "Lachine", "LaSalle", "Lucien-L’Allier", "Montréal-Ouest", "Parc", "Pine Beach", "Pointe-aux-Trembles", "Rivière-des-Prairies", "Sainte-Anne-de-Bellevue", "Saint-Léonard–Montréal-Nord", "Saint-Michel–Montréal-Nord", "Sauvé", "Valois", "Vendôme"],
+      "B": ["Saint-Bruno", "Saint-Lambert", "Vimont", "Sainte-Rose"],
+      "C": ["Candiac", "Delson", "Dorion", "Hudson", "Île-Perrot", "Mascouche", "McMasterville", "Mont-Saint-Hilaire", "Pincourt–Terrasse-Vaudreuil", "Rosemère", "Saint-Basile-le-Grand", "Saint-Constant", "Sainte-Catherine", "Sainte-Thérèse", "Saint-Jérôme", "Terrebonne", "Vaudreuil"]
+    }
+  },
+  "correspondances": [
+    {"from": {"station": "Gare Centrale", "network": "rem"}, "to": {"station": "Bonaventure", "network": "metro"}, "zone": "A", "type": "pedestrian_indoor", "note": "Connexion par la Place Bonaventure."},
+    {"from": {"station": "Gare Centrale", "network": "exo_train"}, "to": {"station": "Bonaventure", "network": "metro"}, "zone": "A", "type": "pedestrian_indoor"},
+    {"from": {"station": "Lucien-L’Allier", "network": "exo_train"}, "to": {"station": "Lucien-L’Allier", "network": "metro"}, "zone": "A", "type": "station_transfer"}
+  ]
+}

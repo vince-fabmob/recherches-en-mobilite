@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "title": "Référentiel des zones ARTM par station",
+    "effective_date": "2026-07-01",
+    "retrieved_date": "2026-08-11",
+    "sources": [
+      "https://www.artm.quebec/en/fare-zones/",
+      "https://rem.info/fr/se-deplacer/stations-du-reseau",
+      "https://www.donneesquebec.ca/recherche/dataset/exo-trains-gtfs"
+    ],
+    "coverage": "Métro, REM et gares exo publiées dans les listes de zones ARTM. Le GTFS exo doit être utilisé pour synchroniser les identifiants et les nouvelles gares."
+  },
+  "networks": {
+    "metro": {
+      "default_zone": "A",
+      "rule": "Toute station de métro est en zone A, sauf les quatre exceptions ci-dessous.",
+      "stations": {
+        "Longueuil–Université-de-Sherbrooke": {"zone": "B", "municipality": "Longueuil", "aliases": ["Longueuil Université-de-Sherbrooke", "Longueuil"]},
+        "Cartier": {"zone": "B", "municipality": "Laval", "aliases": []},
+        "De la Concorde": {"zone": "B", "municipality": "Laval", "aliases": []},
+        "Montmorency": {"zone": "B", "municipality": "Laval", "aliases": []}
+      }
+    },
+    "rem": {
+      "stations": {
+        "Brossard": {"zone": "B", "municipality": "Brossard", "status": "in_service", "aliases": ["Station Brossard", "Terminus Brossard"]},
+        "Du Quartier": {"zone": "B", "municipality": "Brossard", "status": "in_service", "aliases": ["Station Du Quartier"]},
+        "Panama": {"zone": "B", "municipality": "Brossard", "status": "in_service", "aliases": ["Station Panama", "Terminus Panama"]},
+        "Île-Bigras": {"zone": "B", "municipality": "Laval", "status": "in_service", "aliases": ["Ile-Bigras", "Station Île-Bigras"]},
+        "Sainte-Dorothée": {"zone": "B", "municipality": "Laval", "status": "in_service", "aliases": ["Sainte-Dorothee", "Station Sainte-Dorothée"]},
+        "Île-des-Sœurs": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": ["Ile-des-Soeurs", "Station Île-des-Sœurs"]},
+        "Griffintown–Bernard-Landry": {"zone": "A", "municipality": "Montréal", "status": "planned", "aliases": ["Griffintown Bernard-Landry"]},
+        "Gare Centrale": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": ["Central Station", "Gare Central"]},
+        "McGill": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": []},
+        "Édouard-Montpetit": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": ["Edouard-Montpetit"]},
+        "Canora": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": []},
+        "Ville-de-Mont-Royal": {"zone": "A", "municipality": "Mont-Royal", "status": "in_service", "aliases": ["Ville de Mont-Royal"]},
+        "Côte-de-Liesse": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": ["Cote-de-Liesse"]},
+        "Montpellier": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": []},
+        "Du Ruisseau": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": []},
+        "Bois-Franc": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": []},
+        "Sunnybrooke": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": []},
+        "Pierrefonds-Roxboro": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": ["Pierrefonds Roxboro"]},
+        "Des Sources": {"zone": "A", "municipality": "Montréal", "status": "in_service", "aliases": []},
+        "Fairview–Pointe-Claire": {"zone": "A", "municipality": "Pointe-Claire", "status": "in_service", "aliases": ["Fairview Pointe-Claire"]},
+        "Kirkland": {"zone": "A", "municipality": "Kirkland", "status": "in_service", "aliases": []},
+        "Anse-à-l'Orme": {"zone": "A", "municipality": "Sainte-Anne-de-Bellevue", "status": "in_service", "aliases": ["Anse-a-l'Orme"]},
+        "Marie-Curie": {"zone": "A", "municipality": "Montréal", "status": "under_construction", "aliases": []},
+        "YUL-Aéroport-Montréal-Trudeau": {"zone": "A", "municipality": "Dorval", "status": "under_construction", "aliases": ["YUL", "Aéroport Montréal-Trudeau"]},
+        "Grand-Moulin": {"zone": "C", "municipality": "Deux-Montagnes", "status": "in_service", "aliases": []},
+        "Deux-Montagnes": {"zone": "C", "municipality": "Deux-Montagnes", "status": "in_service", "aliases": ["Station Deux-Montagnes"]}
+      }
+    },
+    "exo_train": {
+      "stations": {
+        "Ahuntsic": {"zone": "A", "aliases": []}, "Anjou": {"zone": "A", "aliases": []}, "Baie-D’Urfé": {"zone": "A", "aliases": ["Baie-D'Urfe"]}, "Beaconsfield": {"zone": "A", "aliases": []}, "Beaurepaire": {"zone": "A", "aliases": []}, "Bois-de-Boulogne": {"zone": "A", "aliases": ["Bois de Boulogne"]}, "Cedar Park": {"zone": "A", "aliases": []}, "Chabanel": {"zone": "A", "aliases": []}, "Dorval": {"zone": "A", "aliases": []}, "Lachine": {"zone": "A", "aliases": []}, "LaSalle": {"zone": "A", "aliases": []}, "Lucien-L’Allier": {"zone": "A", "aliases": ["Lucien-L'Allier"]}, "Montréal-Ouest": {"zone": "A", "aliases": ["Montreal-Ouest"]}, "Parc": {"zone": "A", "aliases": []}, "Pine Beach": {"zone": "A", "aliases": []}, "Pointe-aux-Trembles": {"zone": "A", "aliases": []}, "Rivière-des-Prairies": {"zone": "A", "aliases": []}, "Sainte-Anne-de-Bellevue": {"zone": "A", "aliases": []}, "Saint-Léonard–Montréal-Nord": {"zone": "A", "aliases": ["Saint-Léonard-Montréal-Nord"]}, "Saint-Michel–Montréal-Nord": {"zone": "A", "aliases": ["Saint-Michel-Montréal-Nord"]}, "Sauvé": {"zone": "A", "aliases": ["Sauve"]}, "Valois": {"zone": "A", "aliases": []}, "Vendôme": {"zone": "A", "aliases": ["Vendome"]}, "Saint-Bruno": {"zone": "B", "aliases": []}, "Saint-Lambert": {"zone": "B", "aliases": []}, "Vimont": {"zone": "B", "aliases": []}, "Sainte-Rose": {"zone": "B", "aliases": ["Sainte Rose"]}, "Candiac": {"zone": "C", "aliases": []}, "Delson": {"zone": "C", "aliases": []}, "Dorion": {"zone": "C", "aliases": []}, "Hudson": {"zone": "C", "aliases": []}, "Île-Perrot": {"zone": "C", "aliases": ["Ile-Perrot"]}, "Mascouche": {"zone": "C", "aliases": []}, "McMasterville": {"zone": "C", "aliases": []}, "Mont-Saint-Hilaire": {"zone": "C", "aliases": []}, "Pincourt–Terrasse-Vaudreuil": {"zone": "C", "aliases": ["Pincourt-Terrasse-Vaudreuil"]}, "Rosemère": {"zone": "C", "aliases": ["Rosemere"]}, "Saint-Basile-le-Grand": {"zone": "C", "aliases": []}, "Saint-Constant": {"zone": "C", "aliases": []}, "Sainte-Catherine": {"zone": "C", "aliases": []}, "Sainte-Thérèse": {"zone": "C", "aliases": ["Sainte-Therese"]}, "Saint-Jérôme": {"zone": "C", "aliases": ["Saint-Jerome"]}, "Terrebonne": {"zone": "C", "aliases": []}, "Vaudreuil": {"zone": "C", "aliases": []}
+      }
+    }
+  }
+}

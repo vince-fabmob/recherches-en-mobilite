@@ -1,9 +1,26 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from stm_rem_fare_calculator import lowest_fare
+from stm_rem_fare_calculator import lookup_zone, lowest_fare
+
+
+def test_lookup_zone_resolves_municipality_and_alias():
+    assert lookup_zone("Brossard") == "B"
+    assert lookup_zone("Deux-Montagnes") == "C"
+    assert lookup_zone("Deux Montagnes") == "C"
+
+
+def test_lookup_zone_resolves_station_override():
+    assert lookup_zone("Station Brossard") == "B"
+
+
+def test_lookup_zone_rejects_unknown_place():
+    with pytest.raises(ValueError, match="Unknown ARTM place"):
+        lookup_zone("Lieu inexistant")
 
 
 def test_brossard_to_deux_montagnes_uses_abc_one_trip():

@@ -1,10 +1,50 @@
 """Calculateur minimal pour les titres Tous modes STM-REM."""
 
 import json
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 FARES_PATH = ROOT / "donnees" / "tarifs-stm-rem.json"
+ZONES_PATH = ROOT / "donnees" / "zones-artm.json"
+
+
+def normalize_place(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value)
+    normalized = "".join(char for char in normalized if not unicodedata.combining(char))
+    return normalized.lower().replace("'", " ").replace("-", " ").strip()
+
+
+def load_json(path: Path) -> dict:
+    with path.open(encoding="utf-8") as file:
+        return json.load(file)
+
+
+def load_fares(path: Path = FARES_PATH) -> dict:
+    return load_json(path)
+
+
+def lookup_zone(place: str, zones: dict | None = None) -> str:
+    """Résout une municipalité ou un repère de station vers sa zone ARTM."""
+    if not place or not place.strip():
+        raise ValueError("place must be a non-empty string")
+
+    zones = zones or load_json(ZONES_PATH)
+    lookup = {}
+    for zone, municipalities in zones["municipalities"].items():
+        for municipality in municipalities:
+            lookup[normalize_place(municipality)] = zone
+    for name, metadata in zones.get("place_overrides", {}).items():
+        lookup[normalize_place(name)] = metadata["zone"]
+    for alias, canonical in zones.get("normalization", {}).get("aliases", {}).items():
+        canonical_key = normalize_place(canonical)
+        if canonical_key in lookup:
+            lookup[normalize_place(alias)] = lookup[canonical_key]
+
+    key = normalize_place(place)
+    if key not in lookup:
+        raise ValueError(f"Unknown ARTM place: {place}")
+    return lookup[key]
 
 
 def fare_zone_key(traversed_zones: list[str]) -> str:
@@ -17,13 +57,8 @@ def fare_zone_key(traversed_zones: list[str]) -> str:
     if "C" in zones:
         return "ABC"
     if "B" in zones:
-        return "AB" if "A" in zones else "AB"
+        return "AB"
     return "A"
-
-
-def load_fares(path: Path = FARES_PATH) -> dict:
-    with path.open(encoding="utf-8") as file:
-        return json.load(file)
 
 
 def lowest_fare(

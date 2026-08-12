@@ -8,6 +8,20 @@ ROOT = Path(__file__).resolve().parents[1]
 FARES_PATH = ROOT / "donnees" / "tarifs-stm-rem.json"
 ZONES_PATH = ROOT / "donnees" / "zones-artm.json"
 
+PRODUCT_LABELS = {
+    "one_trip": "un passage",
+    "two_trips": "deux passages",
+    "ten_trips": "dix passages",
+    "24_hours": "titre 24 heures",
+}
+
+PROFILE_KEYS = {
+    "ordinaire": "regular",
+    "reduit_6_17": "reduced_6_17",
+    "etudiant_18_plus": "student_18_plus",
+    "aine_65_plus": "senior_65_plus",
+}
+
 
 def normalize_place(value: str) -> str:
     normalized = unicodedata.normalize("NFKD", value)
@@ -102,3 +116,35 @@ def lowest_fare(
     if not candidates:
         raise ValueError("No eligible fare product for this profile and trip count")
     return min(candidates, key=lambda candidate: candidate["cost_cents"])
+
+
+def devis_trajet(
+    origine: str,
+    destination: str,
+    zones_traversees: list[str],
+    deplacements: int = 1,
+    profil: str = "ordinaire",
+    dans_24_heures: bool = False,
+) -> dict:
+    """Retourne un devis STM-REM prêt à afficher pour un itinéraire confirmé."""
+    if profil not in PROFILE_KEYS:
+        raise ValueError(f"Profil tarifaire inconnu: {profil}")
+
+    result = lowest_fare(
+        zones_traversees,
+        trips=deplacements,
+        profile=PROFILE_KEYS[profil],
+        within_24_hours=dans_24_heures,
+    )
+    return {
+        "origine": origine,
+        "destination": destination,
+        "zone_origine": lookup_zone(origine),
+        "zone_destination": lookup_zone(destination),
+        "zones_traversees": zones_traversees,
+        "couverture_requise": result["zone_key"],
+        "titre_recommande": PRODUCT_LABELS[result["product"]],
+        "quantite": result["quantity"],
+        "cout_cents": result["cost_cents"],
+        "cout_dollars": result["cost_cents"] / 100,
+    }

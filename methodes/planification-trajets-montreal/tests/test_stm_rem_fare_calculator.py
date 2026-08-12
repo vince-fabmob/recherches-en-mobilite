@@ -5,7 +5,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from stm_rem_fare_calculator import lookup_zone, lowest_fare
+from stm_rem_fare_calculator import devis_trajet, lookup_zone, lowest_fare
 
 
 def test_lookup_zone_resolves_municipality_and_alias():
@@ -64,4 +64,25 @@ def test_reduced_profile_does_not_select_regular_day_pass():
         "quantity": 2,
         "cost_cents": 1000,
         "zone_key": "A",
+    }
+
+
+def test_devis_trajet_returns_display_ready_quote():
+    result = devis_trajet(
+        origine="Brossard",
+        destination="Deux-Montagnes",
+        zones_traversees=["B", "A", "C"],
+    )
+
+    assert result == {
+        "origine": "Brossard",
+        "destination": "Deux-Montagnes",
+        "zone_origine": "B",
+        "zone_destination": "C",
+        "zones_traversees": ["B", "A", "C"],
+        "couverture_requise": "ABC",
+        "titre_recommande": "un passage",
+        "quantite": 1,
+        "cout_cents": 700,
+        "cout_dollars": 7.0,
     }

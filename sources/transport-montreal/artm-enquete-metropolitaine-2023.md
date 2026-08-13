@@ -37,6 +37,7 @@ L’ARTM indique que la collecte a couvert environ **109 000 ménages** et **245
 ## Limites et précautions
 
 - Il s’agit d’une enquête déclarative réalisée à l’automne; les résultats ne représentent pas automatiquement toutes les saisons ni chaque jour de l’année.
+- Les résultats décrivent les déplacements d’un **jour moyen de semaine** à l’automne; ils ne permettent donc pas de caractériser directement les comportements de mobilité des **samedis, dimanches et jours fériés**.
 - Les comparaisons avec 2018 doivent distinguer les évolutions de population, les changements de périmètre, les pondérations et les transformations postpandémiques des comportements.
 - Les matrices de niveau 3 sont agrégées; l’accès, les règles de confidentialité et la documentation du Portail données mobilité doivent être vérifiés avant toute réutilisation analytique.
 - Les indicateurs présentés ici concernent le territoire et les définitions publiés par l’ARTM; il faut citer le tableau ou la fiche sectorielle précis pour un résultat local.

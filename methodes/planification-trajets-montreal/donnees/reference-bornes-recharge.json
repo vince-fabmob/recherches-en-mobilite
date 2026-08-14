@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "titre": "Référence des réseaux de recharge pour véhicules électriques",
+    "observed_at": "2026-08-14",
+    "statut": "répertoire de découverte; vérifier disponibilité, connecteur et tarif avant recharge"
+  },
+  "sources_primaires_quebec": [
+    {
+      "nom": "Le Circuit électrique",
+      "portee": "Québec",
+      "role": "source prioritaire pour les bornes publiques au Québec",
+      "donnees_ouvertes": "https://www.donneesquebec.ca/recherche/dataset/liste-des-bornes-de-recharge",
+      "carte": "https://lecircuitelectrique.com/fr/trouver-une-borne/"
+    },
+    {
+      "nom": "Ville de Montréal — bornes publiques",
+      "portee": "Montréal",
+      "role": "bornes publiques municipales",
+      "donnees_ouvertes": "https://donnees.montreal.ca/dataset/bornes-recharge-publiques"
+    }
+  ],
+  "reseaux_complementaires": [
+    {"nom": "FLO", "portee": "Canada et États-Unis", "types": ["L2", "DC rapide"]},
+    {"nom": "Tesla Supercharger", "portee": "Canada et international", "types": ["DC rapide"], "priorite": "véhicules Tesla et véhicules compatibles"},
+    {"nom": "Tesla Destination Charging", "portee": "destination", "types": ["L2"], "priorite": "hôtels, restaurants et commerces"},
+    {"nom": "Electrify Canada", "portee": "Canada", "types": ["CCS", "CHAdeMO"], "puissance_kw": [150, 350], "carte": "https://www.electrify-canada.ca/locate-charger/"},
+    {"nom": "Petro-Canada", "portee": "Canada", "types": ["DC rapide"], "priorite": "grands axes routiers"},
+    {"nom": "ChargePoint", "portee": "Canada et États-Unis", "types": ["L2", "DC rapide"]},
+    {"nom": "Ivy", "portee": "Ontario", "types": ["DC rapide"], "priorite": "trajets Montréal–Ontario"},
+    {"nom": "Shell Recharge", "portee": "Canada", "types": ["L2", "DC rapide"]},
+    {"nom": "Circle K", "portee": "Canada", "types": ["DC rapide"]}
+  ],
+  "agregateurs": [
+    {
+      "nom": "ChargeHub",
+      "portee": "Amérique du Nord",
+      "role": "agrégateur recommandé pour la recherche multi-réseaux",
+      "source": "https://chargehub.com/",
+      "reseaux_annonces": "plus de 100 réseaux"
+    },
+    {
+      "nom": "Open Charge Map",
+      "portee": "mondiale",
+      "role": "source technique de repli et API ouverte",
+      "api": "https://www.openchargemap.org/develop/api",
+      "protocole": "OCPI supporté pour les flux contributeurs"
+    }
+  ],
+  "regles_recommandation": {
+    "montreal_quebec": "Le Circuit électrique, puis ChargeHub pour compléter la couverture",
+    "interprovincial": "ChargeHub, puis le réseau compatible avec le véhicule",
+    "tesla": "Tesla Supercharger, puis ChargeHub pour les options complémentaires",
+    "autre_vehicule": "ChargeHub avec filtres de connecteur et puissance",
+    "a_destination": "Privilégier une borne L2 si le stationnement prévu est long"
+  },
+  "declencheurs_pertinence": [
+    "véhicule électrique personnel, loué ou partagé",
+    "location Turo identifiée comme véhicule électrique",
+    "distance prévue supérieure à 60 pour cent de l’autonomie disponible",
+    "aller-retour susceptible de dépasser l’autonomie disponible",
+    "stationnement à destination assez long pour une recharge L2",
+    "trajet interurbain nécessitant une recharge DC rapide"
+  ],
+  "champs_a_verifier_avant_recommandation": [
+    "compatibilité du connecteur",
+    "puissance maximale acceptée par le véhicule",
+    "statut de disponibilité",
+    "tarif et mode de paiement",
+    "frais d’occupation ou de dépassement"
+  ]
+}

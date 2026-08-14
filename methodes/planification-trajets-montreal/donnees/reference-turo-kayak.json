@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "titre": "Référence Turo et Kayak pour la location de voiture à Montréal",
+    "observed_at": "2026-08-14",
+    "statut_general": "informationnel, ne remplace pas un calcul tarifaire exact"
+  },
+  "turo": {
+    "description": "Location de voiture entre particuliers; le prix est fixé librement par chaque hôte.",
+    "source_officielle": "https://turo.com/ca/fr",
+    "statut_prix": "variable_par_hote_non_calculable_directement",
+    "prix_indicatif": {
+      "minimum_par_jour_cad": 25,
+      "typique_par_jour_cad": [50, 100],
+      "remarque": "Fourchette observée à Montréal; peut varier fortement selon le véhicule et la saison."
+    },
+    "rabais_duree": {
+      "sept_jours_pct": 20,
+      "trente_jours_pct": 30
+    },
+    "options_protection": [
+      {"nom": "Premier", "franchise_dommages_cad": 0, "responsabilite_civile_cad": 2000000},
+      {"nom": "Standard", "franchise_dommages_cad": 500, "responsabilite_civile_cad": 2000000},
+      {"nom": "Minimum", "franchise_dommages_cad": 2000, "responsabilite_civile_cad": 2000000}
+    ],
+    "aeroport_yul": {
+      "disponible": true,
+      "points_prise_en_charge": ["Stationnement P4", "Stationnement P9"],
+      "source": "https://yulsatisfaction.admtl.com/hc/fr-ca/articles/36403327300381"
+    },
+    "declencheurs_pertinence": [
+      "location de plusieurs jours consécutifs",
+      "besoin d’un véhicule spécifique (VUS, familial, électrique)",
+      "arrivée ou départ à l’aéroport Montréal-Trudeau",
+      "Communauto ou Leo non disponibles ou trop coûteux pour la durée demandée"
+    ]
+  },
+  "kayak": {
+    "description": "Comparateur d’agences de location traditionnelles (Hertz, Budget, Avis, et plus de 100 agences).",
+    "source_officielle": "https://www.kayak.fr/cars",
+    "acces_api": {
+      "type": "KAYAK Affiliate Network",
+      "documentation": "https://developers.kayak.com/",
+      "statut": "accès affilié, inscription requise"
+    },
+    "declencheurs_pertinence": [
+      "location classique en agence plutôt qu’entre particuliers",
+      "comparaison multi-agences souhaitée",
+      "prise en charge et retour dans des villes différentes",
+      "location depuis l’aéroport Montréal-Trudeau ou une gare"
+    ]
+  }
+}

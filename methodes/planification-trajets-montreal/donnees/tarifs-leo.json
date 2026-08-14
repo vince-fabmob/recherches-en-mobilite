@@ -4,7 +4,8 @@
     "currency": "CAD",
     "taxes_included": false,
     "source_officielle": "https://leoautopartage.com/tarifs/",
-    "observed_at": "2026-08-12"
+    "observed_at": "2026-08-13",
+    "source_type": "official_tariff_screenshot"
   },
   "per_trip_fees": {
     "access_cents": 149,
@@ -14,7 +15,7 @@
     "minute_rate_cents": 43,
     "thirty_minutes_cents": 950,
     "hours": {
-      "1": 1450,
+      "1": 1475,
       "2": 2600,
       "3": 3600,
       "6": 5000
@@ -28,8 +29,8 @@
   },
   "distance": {
     "included_km_per_day": 75,
-    "excess_rate_cents_per_km": null,
-    "excess_rate_status": "to_confirm_in_leo_app"
+    "excess_rate_cents_per_km": 32,
+    "excess_rate_status": "confirmed_from_official_tariff_screenshot"
   },
   "parking": {
     "leo_zone_cents": 0,

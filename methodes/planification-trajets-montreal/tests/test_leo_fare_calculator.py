@@ -30,3 +30,12 @@ def test_downtown_parking_is_added():
 
     assert result["parking_cost"] == 5.90
     assert result["before_taxes"] == 18.88
+
+
+def test_excess_kilometres_are_charged():
+    result = calculate_leo_fare(60, distance_km=100, rates=RATES)
+
+    assert result["included_km"] == 75
+    assert result["excess_km"] == 25
+    assert result["distance_cost"] == 8.00
+    assert result["before_taxes"] == 27.23

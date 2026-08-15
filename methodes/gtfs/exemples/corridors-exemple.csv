@@ -1,0 +1,2 @@
+corridor_id,corridor_name,from_stop_id,to_stop_id
+EXEMPLE_01,Exemple de corridor — direction est,STOP_AMONT,STOP_AVAL

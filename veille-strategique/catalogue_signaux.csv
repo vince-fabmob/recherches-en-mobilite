@@ -1,0 +1,2 @@
+id,date_evenement,date_veille,theme_principal,type_signal,territoire,statut_signal,force_signal,incertitude,horizon,scenarios_affectes,tipping_points,phase_dynamic_pathway,impact_mobilite,impact_energie,source_primaire,fiche
+SIG-AVI-2026-0001,2026-08-12,2026-08-15,aviation_electrique,demonstration_technologique,Quebec-NordEstUS,confirme,3,3,moyen_terme_3_5_ans,SCN-MOBREG-QC-01,TP-AVI-01|TP-AVI-02,demonstration,4,4,oui,fiches/aviation-electrique/2026-08-12-heart-x1-premier-vol.md

@@ -1,0 +1,80 @@
+version: 1.0
+langue: fr
+
+statuts_epistemiques:
+  - fait_observe
+  - annonce_promoteur
+  - hypothese_prospective
+  - condition_de_bascule
+
+statuts_signal:
+  - a_surveiller
+  - confirme
+  - infirme
+  - archive
+
+types_signal:
+  - demonstration_technologique
+  - deploiement_commercial
+  - reglementation
+  - politique_publique
+  - etude_publiee
+  - donnees_observees
+  - investissement
+  - choc_exogene
+  - signal_faible
+
+themes:
+  - aviation_electrique
+  - electrification
+  - energie_infrastructure
+  - mobilite_regionale
+  - transport_collectif
+  - mobilite_partagee
+  - autonomie_et_ia
+  - fret_logistique
+  - micromobilite
+  - politiques_reglementation
+  - donnees_methodes
+
+horizons:
+  - court_terme_0_2_ans
+  - moyen_terme_3_5_ans
+  - long_terme_6_15_ans
+  - tres_long_terme_15_ans_plus
+
+echelles:
+  force_signal:
+    1: rumeur_ou_annonce_isolee
+    2: signal_faible_documente
+    3: demonstration_ou_tendance_confirmee
+    4: replication_multisite_ou_precommercialisation
+    5: deploiement_reproductible_a_grande_echelle
+  impact_potentiel:
+    1: marginal
+    2: limite
+    3: significatif
+    4: eleve
+    5: systemique
+  incertitude:
+    1: faible
+    2: moderee
+    3: elevee
+    4: tres_elevee
+
+effets_scenario:
+  - renforce
+  - affaiblit
+  - accelere
+  - retarde
+  - declencheur_potentiel
+  - bifurcation_potentielle
+
+phases_dynamic_pathway:
+  - exploration
+  - demonstration
+  - certification_et_pilotes
+  - pre_deploiement
+  - deploiement_selectif
+  - mise_a_echelle
+  - maturite

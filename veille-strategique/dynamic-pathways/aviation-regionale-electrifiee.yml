@@ -1,0 +1,56 @@
+id: "PATH-AVI-REG-01"
+titre: "Aviation régionale électrifiée et intermodale"
+objectif_systemique: >
+  Améliorer l’accessibilité régionale en réduisant progressivement la dépendance
+  aux carburants fossiles, sans verrouillage prématuré dans des actifs rigides.
+
+phases:
+  - id: "P1"
+    nom: "Démonstration et apprentissage"
+    horizon: "2026-2029"
+    conditions:
+      - "Démonstrateurs en vol reproductibles"
+      - "Données publiques de performance"
+    indicateurs:
+      - "nombre_vols_essais"
+      - "maturite_technologique"
+    decisions_conditionnelles:
+      - "Cartographier les corridors et la capacité électrique aéroportuaire."
+
+  - id: "P2"
+    nom: "Certification et pilotes commerciaux"
+    horizon: "2029-2033"
+    conditions:
+      - "Certification d’un appareil régional."
+      - "Preuve de fiabilité opérationnelle."
+      - "Modèle de recharge documenté."
+    indicateurs:
+      - "certification_appareil_regional"
+      - "cout_total_siege_km"
+      - "disponibilite_appareil"
+    decisions_conditionnelles:
+      - "Lancer seulement des pilotes intermodaux assortis de critères d’arrêt."
+
+  - id: "P3"
+    nom: "Déploiement sélectif"
+    horizon: "2033-2040"
+    conditions:
+      - "Parité de coût sur des corridors ciblés."
+      - "Taux de remplissage suffisant."
+      - "Infrastructure de recharge opérationnelle."
+    indicateurs:
+      - "routes_commerciales"
+      - "taux_remplissage"
+      - "intensite_carbone_siege_km"
+    decisions_conditionnelles:
+      - "Étendre uniquement les usages confirmés par des données opérationnelles."
+
+lock_ins_a_eviter:
+  - "Infrastructure aéroportuaire non évolutive."
+  - "Subvention d’actifs fossiles sans plan de conversion ou de sortie."
+  - "Assimilation d’une démonstration à une preuve de viabilité commerciale."
+
+options_reelles:
+  - "Pré-équipement modulaire en puissance électrique."
+  - "Études de faisabilité Québec–Nord-Est américain."
+  - "Pilotes réversibles avec seuils de poursuite et d’arrêt."

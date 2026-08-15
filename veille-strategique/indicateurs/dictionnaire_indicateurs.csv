@@ -1,0 +1,6 @@
+id,nom,unite,definition,type,frequence,source_cible,lien_scenarios
+certification_appareil_regional,Certification d’un appareil régional électrifié,statut réglementaire,Statut de certification commerciale d’un appareil régional électrifié,reglementation,semestrielle,autorité de certification,SCN-MOBREG-QC-01|SCN-AVIATION-REG-02
+autonomie_commerciale_km,Autonomie commerciale,km,Autonomie certifiée avec charge utile pertinente,technique,semestrielle,constructeur et autorité de certification,SCN-MOBREG-QC-01
+cout_total_siege_km,Coût total par siège-km,monnaie par siège-km,Coût complet incluant énergie entretien batterie équipage et immobilisation,economie,annuelle,opérateur ou étude indépendante,SCN-MOBREG-QC-01|SCN-AVIATION-REG-02
+nombre_routes_commerciales,Nombre de liaisons commerciales,nombre,Nombre de liaisons régulières utilisant la technologie,operationnel,trimestrielle,opérateurs et autorités aéroportuaires,SCN-MOBREG-QC-01
+puissance_recharge_aeroport_mw,Puissance de recharge aéroportuaire,MW,Puissance électrique disponible ou installée pour la recharge,infrastructure,annuelle,aéroports et distributeurs d’électricité,SCN-MOBREG-QC-01

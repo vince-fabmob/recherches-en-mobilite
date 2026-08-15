@@ -1,0 +1,5 @@
+id,nom,type,territoire,statut,source_fiche,lien_externe,role_potentiel
+OP-AEROPORT-PLATTSBURGH-01,Plattsburgh International Airport,aeroport,Nord-Est des États-Unis,actif,veille-strategique/fiches/aviation-electrique/2026-08-12-heart-x1-premier-vol.md,https://www.flyplattsburgh.com/,Site de démonstration et nœud potentiel de mobilité aérienne régionale
+OP-ARTM-01,Autorité régionale de transport métropolitain,autorite_organisatrice,Grand Montréal,actif,sources/producteurs-donnees-mobilite-quebec.md,https://www.artm.quebec/,Planification et données de mobilité régionale
+OP-COMMUNAUTO-01,Communauto,autopartage,Québec,actif,sources/mobilite-partagee-tnc-autopartage.md,https://communauto.com/,Option de premier ou dernier kilomètre dans une chaîne multimodale
+OP-STM-01,Société de transport de Montréal,transport_collectif,Montréal,actif,sources/transport-collectif-gtfs-quebec.md,https://www.stm.info/,Correspondances et desserte de transport collectif

@@ -71,6 +71,31 @@ dynamic_pathway:
     - "Certification."
     - "Données transparentes d’autonomie, de fiabilité et de coût opérationnel."
     - "Capacité de recharge et puissance disponible dans les aéroports visés."
+relations:
+  donnees:
+    - id: "DATA-OD-QC-01"
+      usage: "Estimer les marchés régionaux, les origines-destinations et les correspondances terrestres."
+      statut: "public"
+    - id: "DATA-GTFS-QC-01"
+      usage: "Tester la qualité des correspondances autobus et rail dans une chaîne porte-à-porte."
+      statut: "public"
+    - id: "DATA-AEROPORT-ENER-01"
+      usage: "Évaluer la puissance disponible, le raccordement et les coûts énergétiques aéroportuaires."
+      statut: "a_identifier"
+  operateurs:
+    - id: "OP-AEROPORT-PLATTSBURGH-01"
+      role: "Site de démonstration et référence de proximité pour le Québec."
+    - id: "OP-ARTM-01"
+      role: "Producteur de données et acteur de planification des correspondances métropolitaines."
+    - id: "OP-COMMUNAUTO-01"
+      role: "Option de premier ou dernier kilomètre dans certains scénarios intermodaux."
+  solutions:
+    - id: "SOL-PLANIF-MULTIMODAL-01"
+      role: "Assembler les segments air, rail, autobus, marche et mobilité partagée dans l’analyse porte-à-porte."
+    - id: "SOL-GTFS-RT-01"
+      role: "Fournir les horaires et l’information temps réel pour la planification des correspondances."
+    - id: "SOL-RECHARGE-HAUTE-PUISSANCE-01"
+      role: "Évaluer l’infrastructure énergétique nécessaire aux futurs appareils électrifiés."
 impacts_potentiels:
   mobilite: 4
   energie: 4
@@ -136,7 +161,28 @@ Si les essais se répètent, se traduisent par une certification et démontrent 
 | `nombre_routes_commerciales` | nombre de liaisons régulières | Vérifie la réplication | 2027-02-15 |
 | `puissance_recharge_aeroport_mw` | MW disponibles | Vérifie la faisabilité énergétique | 2027-02-15 |
 
-## 8. Sources
+## 8. Relations avec données, solutions et opérateurs
+
+### Données à mobiliser
+
+| Identifiant | Jeu ou producteur | Usage analytique | Statut |
+|---|---|---|---|
+| `DATA-OD-QC-01` | Enquête Origine-Destination | Estimer les marchés régionaux et correspondances | Public |
+| `DATA-GTFS-QC-01` | GTFS et horaires TC | Tester les correspondances de la chaîne porte-à-porte | Public |
+| `DATA-AEROPORT-ENER-01` | Capacité électrique aéroportuaire | Évaluer la faisabilité énergétique | À identifier |
+
+### Solutions et opérateurs concernés
+
+| Identifiant | Entité ou solution | Type | Rôle possible |
+|---|---|---|---|
+| `OP-AEROPORT-PLATTSBURGH-01` | Plattsburgh International Airport | Aéroport | Site de démonstration |
+| `OP-ARTM-01` | ARTM | Autorité organisatrice | Données et correspondances régionales |
+| `OP-COMMUNAUTO-01` | Communauto | Autopartage | Premier ou dernier kilomètre |
+| `SOL-PLANIF-MULTIMODAL-01` | Planification multimodale | Solution numérique | Chaîne de déplacement porte-à-porte |
+| `SOL-GTFS-RT-01` | GTFS / GTFS-Realtime | Standard de données | Horaires et temps réel |
+| `SOL-RECHARGE-HAUTE-PUISSANCE-01` | Recharge haute puissance | Infrastructure énergétique | Préparation énergétique |
+
+## 9. Sources
 
 ### Primaires
 

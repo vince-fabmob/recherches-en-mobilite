@@ -1,0 +1,5 @@
+id,nom,type,territoire,statut_acces,source_fiche,lien_externe,usage_principal
+DATA-OD-QC-01,Enquête Origine-Destination métropolitaine,enquete_origine_destination,Québec et régions métropolitaines,public,sources/producteurs-donnees-mobilite-quebec.md,https://www.artm.quebec/planification/enquete-metropolitaine-perspectives-mobilite,Estimer les origines-destinations et les correspondances potentielles
+DATA-GTFS-QC-01,GTFS et horaires de transport collectif au Québec,gtfs,Québec,public,sources/transport-collectif-gtfs-quebec.md,,Planification multimodale et analyse de l’offre de transport collectif
+DATA-AEROPORT-ENER-01,Capacité électrique et raccordement aéroportuaire,infrastructure_energetique,Québec et Nord-Est américain,a_identifier,sources/vehicules-electrification-recharge-quebec.md,,Évaluer la puissance disponible pour la recharge et les coûts de raccordement
+DATA-RECHARGE-QC-01,Infrastructures de recharge de véhicules électriques,recharge_ve,Québec,public,sources/vehicules-electrification-recharge-quebec.md,,Cartographier les infrastructures et la continuité énergétique des déplacements

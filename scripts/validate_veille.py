@@ -11,11 +11,16 @@ VEILLE = ROOT / "veille-strategique"
 TAXONOMY = VEILLE / "taxonomie.yml"
 CATALOGUE = VEILLE / "catalogue_signaux.csv"
 FICHES = VEILLE / "fiches"
+REFERENCE_CATALOGUES = {
+    "donnees": ROOT / "referentiels/donnees/catalogue_donnees.csv",
+    "operateurs": ROOT / "referentiels/operateurs/catalogue_operateurs.csv",
+    "solutions": ROOT / "referentiels/solutions/catalogue_solutions.csv",
+}
 
 REQUIRED_TOP_LEVEL = {
     "id", "titre", "dates", "classification", "geographie", "preuve",
     "signal", "scenarios_affectes", "tipping_points", "dynamic_pathway",
-    "impacts_potentiels", "suivi"
+    "relations", "impacts_potentiels", "suivi"
 }
 REQUIRED_SECTIONS = [
     "## 1. Signal factuel",
@@ -25,7 +30,8 @@ REQUIRED_SECTIONS = [
     "## 5. Points de bascule",
     "## 6. Dynamic pathway et options réelles",
     "## 7. Indicateurs de suivi",
-    "## 8. Sources",
+    "## 8. Relations avec données, solutions et opérateurs",
+    "## 9. Sources",
 ]
 
 
@@ -42,7 +48,18 @@ def load_front_matter(path: Path):
     return metadata, text[end + 4:]
 
 
-def validate_fiche(path: Path, taxonomy: dict):
+def load_reference_ids():
+    ids = {}
+    for relation_type, path in REFERENCE_CATALOGUES.items():
+        if not path.exists():
+            raise FileNotFoundError(f"catalogue référentiel manquant: {path}")
+        with path.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        ids[relation_type] = {row.get("id", "") for row in rows if row.get("id")}
+    return ids
+
+
+def validate_fiche(path: Path, taxonomy: dict, reference_ids: dict):
     errors = []
     try:
         metadata, body = load_front_matter(path)
@@ -80,6 +97,19 @@ def validate_fiche(path: Path, taxonomy: dict):
         if scenario.get("effet") not in taxonomy.get("effets_scenario", []):
             errors.append(f"{path}: effet de scénario absent de la taxonomie")
 
+    relations = metadata.get("relations", {})
+    for relation_type, prefix in [("donnees", "DATA-"), ("operateurs", "OP-"), ("solutions", "SOL-")]:
+        entries = relations.get(relation_type, [])
+        if not isinstance(entries, list):
+            errors.append(f"{path}: relations.{relation_type} doit être une liste")
+            continue
+        for entry in entries:
+            relation_id = entry.get("id", "") if isinstance(entry, dict) else ""
+            if not relation_id.startswith(prefix):
+                errors.append(f"{path}: identifiant {relation_type} invalide '{relation_id}'")
+            elif relation_id not in reference_ids[relation_type]:
+                errors.append(f"{path}: identifiant référentiel introuvable '{relation_id}'")
+
     sources = re.findall(r"https?://[^)\s]+", body)
     if not sources:
         errors.append(f"{path}: au moins une URL de source est requise")
@@ -96,12 +126,18 @@ def main():
         print("Structure veille-strategique incomplète")
         return 1
 
+    try:
+        reference_ids = load_reference_ids()
+    except Exception as exc:
+        print(f"Validation échouée : {exc}")
+        return 1
+
     taxonomy = yaml.safe_load(TAXONOMY.read_text(encoding="utf-8"))
     errors = []
     records = []
 
     for path in sorted(FICHES.rglob("*.md")):
-        fiche_errors, record = validate_fiche(path, taxonomy)
+        fiche_errors, record = validate_fiche(path, taxonomy, reference_ids)
         errors.extend(fiche_errors)
         if record:
             records.append(record)
@@ -119,7 +155,7 @@ def main():
     for record in records:
         if record["id"] not in catalogue_ids:
             errors.append(f"{record['path']}: fiche absente du catalogue_signaux.csv")
-        if record["path"].replace("fiches/", "") not in catalogue_paths and record["path"] not in catalogue_paths:
+        if record["path"] not in catalogue_paths:
             errors.append(f"{record['path']}: chemin absent du catalogue_signaux.csv")
 
     unknown = sorted(set(catalogue_ids) - set(ids))

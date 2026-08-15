@@ -1,0 +1,5 @@
+id,nom,type,territoire,statut,source_fiche,lien_externe,role_dans_chaine_trajet
+SOL-PLANIF-MULTIMODAL-01,Planification multimodale intégrée,solution_numerique,Québec,a_evaluer,sources/transport-collectif-gtfs-quebec.md,,Assembler les segments et correspondances d’un trajet porte-à-porte
+SOL-GTFS-RT-01,GTFS et GTFS-Realtime,standard_donnees,Québec,actif,sources/transport-collectif-gtfs-quebec.md,https://gtfs.org/,Fournir horaires et information temps réel aux planificateurs de trajet
+SOL-AUTOPARTAGE-01,Autopartage,service_mobilite,Québec,actif,sources/mobilite-partagee-tnc-autopartage.md,https://communauto.com/,Assurer le premier ou dernier kilomètre selon les contextes territoriaux
+SOL-RECHARGE-HAUTE-PUISSANCE-01,Recharge électrique haute puissance,infrastructure_energetique,Québec et Nord-Est américain,a_evaluer,sources/vehicules-electrification-recharge-quebec.md,,Permettre l’électrification des modes nécessitant une puissance importante

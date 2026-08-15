@@ -37,6 +37,10 @@ dynamic_pathway:
   verrouillages_a_eviter: []
   options_reelles: []
   conditions_de_passage: []
+relations:
+  donnees: []
+  operateurs: []
+  solutions: []
 impacts_potentiels:
   mobilite: 1
   energie: 1
@@ -90,7 +94,21 @@ Décrire les mécanismes plausibles sous forme conditionnelle : « pourrait », 
 |---|---|---|---|
 | ... | ... | ... | ... |
 
-## 8. Sources
+## 8. Relations avec données, solutions et opérateurs
+
+### Données à mobiliser
+
+| Identifiant | Jeu ou producteur | Usage analytique | Statut |
+|---|---|---|---|
+| `DATA-...` | ... | ... | Disponible / à identifier |
+
+### Solutions et opérateurs concernés
+
+| Identifiant | Entité ou solution | Type | Rôle possible |
+|---|---|---|---|
+| `OP-...` / `SOL-...` | ... | ... | ... |
+
+## 9. Sources
 
 ### Primaires
 

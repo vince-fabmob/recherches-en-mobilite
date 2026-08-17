@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "pack_id": "us-las-vegas-multimodal",
+  "city": "Las Vegas",
+  "region": "Southern Nevada",
+  "country": "US",
+  "currency": "USD",
+  "timezone": "America/Los_Angeles",
+  "last_verified": "2026-08-16",
+  "coverage_notes": "La vallée urbaine inclut Las Vegas, Paradise, North Las Vegas, Henderson et les corridors touristiques. La couverture de chaque service doit être vérifiée au départ et à l’arrivée.",
+  "modes": [
+    "transit",
+    "bike_share",
+    "walking",
+    "tnc",
+    "taxi",
+    "car_rental",
+    "remote_delivery_rental",
+    "robotaxi",
+    "automated_shuttle"
+  ],
+  "dynamic_data_policy": "Les prix, ETA et disponibilités issus d’applications doivent être étiquetés temps réel et ne sont jamais garantis par les données statiques.",
+  "status_values": [
+    "commercial",
+    "public",
+    "waitlist",
+    "employee_only",
+    "pilot",
+    "planned",
+    "suspended",
+    "unknown"
+  ]
+}

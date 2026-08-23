@@ -66,6 +66,7 @@ Les données sur les véhicules électriques et la recharge sont produites par p
 - [Producteurs de données de mobilité au Québec](producteurs-donnees-mobilite-quebec.md)
 - [MTMD — Débits de circulation](debits-circulation-mtmd-quebec.md)
 - [État de l’énergie au Québec — Tableau 9](etat-energie-quebec-tableau-9-parc-vehicules-energie.md)
+- [Consommation de produits pétroliers au Québec](consommation-produits-petroliers-quebec.md)
 - [Guide de comparabilité des données de mobilité](../methodes/comparabilite-des-donnees-mobilite.md)
 
 ## À compléter

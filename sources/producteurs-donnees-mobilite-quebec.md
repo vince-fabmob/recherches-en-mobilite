@@ -42,6 +42,7 @@ Cette page constitue un point d’entrée vers les principaux producteurs et por
 - [Montréal — Comptages aux intersections](transport-montreal/montreal-comptages-vehicules-cyclistes-pietons.md)
 - [Montréal — Compteurs cyclistes permanents](transport-montreal/montreal-compteurs-cyclistes-permanents.md)
 - [MTMD — Débits de circulation](debits-circulation-mtmd-quebec.md)
+- [Consommation de produits pétroliers au Québec](consommation-produits-petroliers-quebec.md)
 
 ## À compléter
 

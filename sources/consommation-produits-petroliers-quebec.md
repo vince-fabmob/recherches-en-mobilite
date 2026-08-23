@@ -108,6 +108,7 @@ Voir aussi la fiche existante [État de l'énergie au Québec — Tableau 9 : pa
 - [État de l'énergie au Québec — Tableau 9 : parc de véhicules et énergie](etat-energie-quebec-tableau-9-parc-vehicules-energie.md)
 - [MTMD — Débits de circulation](debits-circulation-mtmd-quebec.md)
 - [Guide de comparabilité des données de mobilité](../methodes/comparabilite-des-donnees-mobilite.md)
+- [Analyse : Évolution de la consommation de produits pétroliers en transport au Québec](../analyses/evolution-consommation-produits-petroliers-transport-quebec.md)
 
 ## À compléter
 

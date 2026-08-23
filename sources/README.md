@@ -38,6 +38,7 @@
 - [Véhicules, électrification et recharge au Québec](vehicules-electrification-recharge-quebec.md)
 - [État de l'énergie au Québec — Tableau 9 : parc de véhicules et énergie](etat-energie-quebec-tableau-9-parc-vehicules-energie.md)
 - [Consommation de produits pétroliers au Québec](consommation-produits-petroliers-quebec.md)
+  - Voir aussi l'analyse associée : [Évolution de la consommation de produits pétroliers en transport au Québec](../analyses/evolution-consommation-produits-petroliers-transport-quebec.md)
 
 ## Jeux de données synthétiques et échantillonnage
 

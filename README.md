@@ -12,10 +12,11 @@ Ce dépôt indexe des sources publiques ou accessibles publiquement portant sur 
 - Des métadonnées descriptives
 - Des liens vers les méthodologies, documentations et conditions d’utilisation
 - Des mots-clés et une classification thématique ou territoriale
+- Des analyses dérivées (`analyses/`), c’est-à-dire des valeurs calculées à partir de sources primaires citées avec précision (tableau, identifiant, date de consultation), accompagnées de leur méthode de calcul
 
 ## Ce dépôt ne contient pas
 
-- Aucune copie de données de tiers
+- Aucune copie brute ou intégrale d’un jeu de données de tiers (les analyses de `analyses/` présentent des valeurs recalculées ou recombinées à partir de sources citées, pas une redistribution de leurs fichiers)
 - Aucune donnée personnelle
 - Aucun script de collecte ou d’extraction
 - Aucune redistribution de contenu soumis à des droits ou conditions externes
@@ -28,6 +29,7 @@ Les fiches décrivent les sources à partir des informations publiées par leurs
 ## Navigation
 
 - [Sources thématiques](sources/README.md)
+- [Analyses](analyses/README.md)
 - [Territoires](territoires/README.md)
 - [Standards](standards/README.md)
 - [Méthodes et indicateurs](methodes/README.md)

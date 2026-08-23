@@ -41,6 +41,7 @@ L’ARTM indique que la collecte a couvert environ **109 000 ménages** et **245
 - Les comparaisons avec 2018 doivent distinguer les évolutions de population, les changements de périmètre, les pondérations et les transformations postpandémiques des comportements.
 - Les matrices de niveau 3 sont agrégées; l’accès, les règles de confidentialité et la documentation du Portail données mobilité doivent être vérifiés avant toute réutilisation analytique.
 - Les indicateurs présentés ici concernent le territoire et les définitions publiés par l’ARTM; il faut citer le tableau ou la fiche sectorielle précis pour un résultat local.
+- Cette enquête mesure la mobilité à l’intérieur de la région métropolitaine; elle ne capture pas les déplacements longue distance qui sortent du territoire enquêté. Voir l’analyse [Répartition du kilométrage entre milieu local et longue distance](../../analyses/repartition-km-urbain-longue-distance-quebec.md) pour ce constat et les comparatifs internationaux disponibles.
 
 ## Mots-clés
 
